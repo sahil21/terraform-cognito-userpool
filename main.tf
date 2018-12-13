@@ -12,6 +12,14 @@ resource "aws_cognito_user_pool" "pool" {
   email_verification_subject = "${var.email_verification_subject}"
   email_verification_message = "${var.email_verification_message}"
 
+  password_policy {
+    minimum_length    = "${var.password_policy_minimum_length}"
+    require_lowercase = "${var.password_policy_require_lowercase}"
+    require_numbers   = "${var.password_policy_require_numbers}"
+    require_symbols   = "${var.password_policy_require_symbols}"
+    require_uppercase = "${var.password_policy_require_uppercase}"
+  }
+
   tags = "${var.tags}"
 
 }
