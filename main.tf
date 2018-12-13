@@ -11,4 +11,7 @@ resource "aws_cognito_user_pool" "pool" {
   name                       = "${module.label.id}"
   email_verification_subject = "${var.email_verification_subject}"
   email_verification_message = "${var.email_verification_message}"
+
+  tags = "${var.tags}"
+
 }
