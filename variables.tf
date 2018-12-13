@@ -53,3 +53,53 @@ variable "password_policy_require_uppercase" {
   default     = true
   description = "Whether you have required users to use at least one uppercase letter in their password"
 }
+
+variable "lambda_config_create_auth_challenge" {
+  default = ""
+  description = "The ARN of the lambda creating an authentication challenge"
+}
+
+variable "lambda_config_custom_message" {
+  default = ""
+  description = "A custom Message AWS Lambda trigger"
+}
+
+variable "lambda_config_define_auth_challenge" {
+  default = ""
+  description = "Defines the authentication challenge"
+}
+
+variable "lambda_config_post_authentication" {
+  default = ""
+  description = "A post-authentication AWS Lambda trigger"
+}
+
+variable "lambda_config_post_confirmation" {
+  default = ""
+  description = "A post-confirmation AWS Lambda trigger"
+}
+
+variable "lambda_config_pre_authentication" {
+  default = ""
+  description = "A pre-authentication AWS Lambda trigger"
+}
+
+variable "lambda_config_pre_sign_up" {
+  default = ""
+  description = "A pre-registration AWS Lambda trigger"
+}
+
+variable "lambda_config_pre_token_generation" {
+  default = ""
+  description = "Allow to customize identity token claims before token generation"
+}
+
+variable "lambda_config_user_migration" {
+  default = ""
+  description = "The user migration Lambda config type"
+}
+
+variable "lambda_config_verify_auth_challenge_response" {
+  default = ""
+  description = "Verifies the authentication challenge response"
+}

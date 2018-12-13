@@ -20,6 +20,19 @@ resource "aws_cognito_user_pool" "pool" {
     require_uppercase = "${var.password_policy_require_uppercase}"
   }
 
+  lambda_config {
+    create_auth_challenge          = "${var.lambda_config_create_auth_challenge}"
+    custom_message                 = "${var.lambda_config_custom_message}"
+    define_auth_challenge          = "${var.lambda_config_define_auth_challenge}"
+    post_authentication            = "${var.lambda_config_post_authentication}"
+    post_confirmation              = "${var.lambda_config_post_confirmation}"
+    pre_authentication             = "${var.lambda_config_pre_authentication}"
+    pre_sign_up                    = "${var.lambda_config_pre_sign_up}"
+    pre_token_generation           = "${var.lambda_config_pre_token_generation}"
+    user_migration                 = "${var.lambda_config_user_migration}"
+    verify_auth_challenge_response = "${var.lambda_config_verify_auth_challenge_response}"
+  }
+
   tags = "${var.tags}"
 
 }
