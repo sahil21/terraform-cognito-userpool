@@ -29,6 +29,11 @@ variable "email_verification_message" {
   description = "Message of verification E-mail"
 }
 
+variable "email_config_reply_email_address" {
+  default = ""
+  description = "The REPLY-TO email address"
+}
+
 variable "password_policy" {
   type    = "map"
   default = {
