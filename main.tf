@@ -12,10 +12,6 @@ resource "aws_cognito_user_pool" "pool" {
   email_verification_subject = "${var.email_verification_subject}"
   email_verification_message = "${var.email_verification_message}"
 
-  email_configuration {
-    reply_to_email_address = "${var.email_config_reply_email_address}"
-  }
-
   password_policy {
     minimum_length    = "${lookup(var.password_policy, "minimum_length")}"
     require_lowercase = "${lookup(var.password_policy, "require_lowercase")}"
