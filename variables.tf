@@ -130,3 +130,15 @@ variable "allowed_oauth_scopes" {
   default = ["phone", "email", "openid", "profile", "aws.cognito.signin.user.admin"]
   description = "List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin)"
 }
+
+variable "callback_urls" {
+  type = "list"
+  default = []
+  description = "List of allowed callback URLs for the identity providers"
+}
+
+variable "logout_urls" {
+  type = "list"
+  default = []
+  description = "List of allowed logout URLs for the identity providers"
+}

@@ -51,5 +51,7 @@ resource "aws_cognito_user_pool_client" "client" {
   user_pool_id = "${aws_cognito_user_pool.pool.id}"
   allowed_oauth_flows = "${var.allowed_oauth_flows}"
   allowed_oauth_scopes = "${var.allowed_oauth_scopes}"
+  callback_urls = "${var.callback_urls}"
+  logout_urls = "${var.logout_urls}"
 
 }
