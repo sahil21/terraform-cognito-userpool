@@ -142,3 +142,9 @@ variable "logout_urls" {
   default = []
   description = "List of allowed logout URLs for the identity providers"
 }
+
+variable "supported_identity_providers" {
+  type = "list"
+  default = ["COGNITO"]
+  description = "List of provider names for the identity providers that are supported on this client"
+}
