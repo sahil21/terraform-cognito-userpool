@@ -32,3 +32,23 @@ output "userpool_client_secret" {
   value = "${aws_cognito_user_pool_client.client.client_secret}"
   description = "The client secret of the user pool client"
 }
+
+output "aws_account_id" {
+  value = "${aws_cognito_user_pool_domain.domain.aws_account_id}"
+  description = "The AWS account ID for the user pool owner"
+}
+
+output "cloudfront_distribution_arn" {
+  value = "${aws_cognito_user_pool_domain.domain.cloudfront_distribution_arn}"
+  description = "The ARN of the CloudFront distribution"
+}
+
+output "s3_bucket" {
+  value = "${aws_cognito_user_pool_domain.domain.s3_bucket}"
+  description = "The S3 bucket where the static files for this domain are stored"
+}
+
+output "version" {
+  value = "${aws_cognito_user_pool_domain.domain.version}"
+  description = "The app version"
+}
