@@ -12,27 +12,53 @@ resource "aws_cognito_user_pool" "pool" {
   email_verification_subject = "${var.email_verification_subject}"
   email_verification_message = "${var.email_verification_message}"
 
+  admin_create_user_config {
+    allow_admin_create_user_only = "${var.allow_admin_create_user_only}"
+  }
+
   password_policy {
-    minimum_length    = "${lookup(var.password_policy, "minimum_length")}"
-    require_lowercase = "${lookup(var.password_policy, "require_lowercase")}"
-    require_numbers   = "${lookup(var.password_policy, "require_numbers")}"
-    require_symbols   = "${lookup(var.password_policy, "require_symbols")}"
-    require_uppercase = "${lookup(var.password_policy, "require_uppercase")}"
+    minimum_length    = "${var.password_policy_minimum_length}"
+    require_lowercase = "${var.password_policy_require_lowercase}"
+    require_numbers   = "${var.password_policy_require_numbers}"
+    require_symbols   = "${var.password_policy_require_symbols}"
+    require_uppercase = "${var.password_policy_require_uppercase}"
   }
 
   lambda_config {
-    create_auth_challenge          = "${lookup(var.lambda_config, "create_auth_challenge")}"
-    custom_message                 = "${lookup(var.lambda_config, "custom_message")}"
-    define_auth_challenge          = "${lookup(var.lambda_config, "define_auth_challenge")}"
-    post_authentication            = "${lookup(var.lambda_config, "post_authentication")}"
-    post_confirmation              = "${lookup(var.lambda_config, "post_confirmation")}"
-    pre_authentication             = "${lookup(var.lambda_config, "pre_authentication")}"
-    pre_sign_up                    = "${lookup(var.lambda_config, "pre_sign_up")}"
-    pre_token_generation           = "${lookup(var.lambda_config, "pre_token_generation")}"
-    user_migration                 = "${lookup(var.lambda_config, "user_migration")}"
-    verify_auth_challenge_response = "${lookup(var.lambda_config, "verify_auth_challenge_response")}"
+    create_auth_challenge          = "${var.lambda_config_create_auth_challenge}"
+    custom_message                 = "${var.lambda_config_custom_message}"
+    define_auth_challenge          = "${var.lambda_config_define_auth_challenge}"
+    post_authentication            = "${var.lambda_config_post_authentication}"
+    post_confirmation              = "${var.lambda_config_post_confirmation}"
+    pre_authentication             = "${var.lambda_config_pre_authentication}"
+    pre_sign_up                    = "${var.lambda_config_pre_sign_up}"
+    pre_token_generation           = "${var.lambda_config_pre_token_generation}"
+    user_migration                 = "${var.lambda_config_user_migration}"
+    verify_auth_challenge_response = "${var.lambda_config_verify_auth_challenge_response}"
   }
+
+  username_attributes = "${var.username_attributes}"
+
+  auto_verified_attributes = "${var.auto_verified_attributes}"
 
   tags = "${var.tags}"
 
+}
+
+resource "aws_cognito_user_pool_client" "client" {
+
+  name = "${module.label.id}"
+  user_pool_id = "${aws_cognito_user_pool.pool.id}"
+  allowed_oauth_flows = "${var.allowed_oauth_flows}"
+  allowed_oauth_scopes = "${var.allowed_oauth_scopes}"
+  callback_urls = "${var.callback_urls}"
+  logout_urls = "${var.logout_urls}"
+  supported_identity_providers = "${var.supported_identity_providers}"
+  refresh_token_validity = "${var.refresh_token_validity}"
+
+}
+
+resource "aws_cognito_user_pool_domain" "domain" {
+    domain = "${var.domain}"
+    user_pool_id = "${aws_cognito_user_pool.pool.id}"
 }
