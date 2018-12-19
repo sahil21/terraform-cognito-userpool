@@ -120,3 +120,13 @@ variable "lambda_config_verify_auth_challenge_response" {
   default = ""
   description = "Verifies the authentication challenge response"
 }
+
+variable "allowed_oauth_flows" {
+  default = ["code", "implicit"]
+  description = "List of allowed OAuth flows (code, implicit, client_credentials)"
+}
+
+variable "allowed_oauth_scopes" {
+  default = ["phone", "email", "openid", "profile", "aws.cognito.signin.user.admin"]
+  description = "List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin)"
+}

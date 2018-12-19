@@ -49,5 +49,7 @@ resource "aws_cognito_user_pool_client" "client" {
 
   name = "${module.label.id}"
   user_pool_id = "${aws_cognito_user_pool.pool.id}"
+  allowed_oauth_flows = "${var.allowed_oauth_flows}"
+  allowed_oauth_scopes = "${var.allowed_oauth_scopes}"
 
 }
