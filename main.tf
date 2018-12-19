@@ -12,6 +12,10 @@ resource "aws_cognito_user_pool" "pool" {
   email_verification_subject = "${var.email_verification_subject}"
   email_verification_message = "${var.email_verification_message}"
 
+  admin_create_user_config {
+    allow_admin_create_user_only = "${var.allow_admin_create_user_only}"
+  }
+
   password_policy {
     minimum_length    = "${var.password_policy_minimum_length}"
     require_lowercase = "${var.password_policy_require_lowercase}"

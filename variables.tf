@@ -29,6 +29,11 @@ variable "email_verification_message" {
   description = "Message of verification E-mail"
 }
 
+variable "allow_admin_create_user_only" {
+  default = false
+  description = "Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app"
+}
+
 variable "password_policy_minimum_length" {
   default = 8
   description = "The minimum length of the password policy that you have set"
