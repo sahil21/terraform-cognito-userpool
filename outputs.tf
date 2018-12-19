@@ -22,3 +22,13 @@ output "userpool_last_modified_date" {
 	value = "${aws_cognito_user_pool.pool.last_modified_date}"
 	description = "The date the user pool was last modified"
 }
+
+output "userpool_client_id" {
+  value       = "${aws_cognito_user_pool_client.client.id}"
+  description = "The id of the user pool client"
+}
+
+output "userpool_client_secret" {
+  value = "${aws_cognito_user_pool_client.client.client_secret}"
+  description = "The client secret of the user pool client"
+}
