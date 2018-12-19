@@ -153,3 +153,7 @@ variable "refresh_token_validity" {
   default = 30
   description = "The time limit in days refresh tokens are valid for"
 }
+
+variable "domain" {
+    description = "The domain string"
+}

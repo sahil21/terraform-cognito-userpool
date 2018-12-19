@@ -57,3 +57,8 @@ resource "aws_cognito_user_pool_client" "client" {
   refresh_token_validity = "${var.refresh_token_validity}"
 
 }
+
+resource "aws_cognito_user_pool_domain" "domain" {
+    domain = "${var.domain}"
+    user_pool_id = "${aws_cognito_user_pool.pool.id}"
+}
