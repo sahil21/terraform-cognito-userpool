@@ -44,3 +44,10 @@ resource "aws_cognito_user_pool" "pool" {
   tags = "${var.tags}"
 
 }
+
+resource "aws_cognito_user_pool_client" "client" {
+
+  name = "${module.label.id}"
+  user_pool_id = "${aws_cognito_user_pool.pool.id}"
+
+}
