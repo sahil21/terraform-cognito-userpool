@@ -148,3 +148,8 @@ variable "supported_identity_providers" {
   default = ["COGNITO"]
   description = "List of provider names for the identity providers that are supported on this client"
 }
+
+variable "refresh_token_validity" {
+  default = 30
+  description = "The time limit in days refresh tokens are valid for"
+}

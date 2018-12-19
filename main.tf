@@ -54,5 +54,6 @@ resource "aws_cognito_user_pool_client" "client" {
   callback_urls = "${var.callback_urls}"
   logout_urls = "${var.logout_urls}"
   supported_identity_providers = "${var.supported_identity_providers}"
+  refresh_token_validity = "${var.refresh_token_validity}"
 
 }
