@@ -37,6 +37,10 @@ resource "aws_cognito_user_pool" "pool" {
     verify_auth_challenge_response = "${var.lambda_config_verify_auth_challenge_response}"
   }
 
+  username_attributes = "${var.username_attributes}"
+
+  auto_verified_attributes = "${var.auto_verified_attributes}"
+
   tags = "${var.tags}"
 
 }

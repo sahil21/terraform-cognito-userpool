@@ -29,6 +29,18 @@ variable "email_verification_message" {
   description = "Message of verification E-mail"
 }
 
+variable "username_attributes" {
+  type = "list"
+  default = ["email"]
+  description = "Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up"
+}
+
+variable "auto_verified_attributes" {
+  type = "list"
+  default = ["email"]
+  description = "The attributes to be auto-verified. Possible values: email, phone_number"
+}
+
 variable "allow_admin_create_user_only" {
   default = false
   description = "Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app"
